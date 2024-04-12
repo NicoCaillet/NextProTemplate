@@ -1,4 +1,6 @@
 # Hi! hope you are great
+## This is my favourite and recommended best NEXT JS 2024 structure, hope you like it!
+
 ## Getting Started
 
 First, run the development server:
