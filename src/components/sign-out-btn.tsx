@@ -8,7 +8,14 @@ export default function SignOutBtn() {
   const [isPending, startTransition] = useTransition();
 
   return (
-    <Button disabled={isPending} onClick={async() => await logOut()}>
+    <Button
+      disabled={isPending}
+      onClick={async () => {
+        startTransition(async () => {
+          await logOut();
+        });
+      }}
+    >
       Sign out
     </Button>
   );

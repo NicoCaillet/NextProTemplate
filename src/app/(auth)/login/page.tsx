@@ -5,7 +5,7 @@ import React from "react";
 
 export default function Page() {
   return (
-    <main>
+    <main className="">
       <H1 className="text-center">Log In</H1>
       <AuthForm type="login" />
 

@@ -2,37 +2,88 @@
 import prisma from "@/lib/db";
 import { sleep } from "@/lib/utils";
 import { revalidatePath } from "next/cache";
-import { petFormSchema, petIdSchema } from "@/lib/validations";
+import { authSchema, petFormSchema, petIdSchema } from "@/lib/validations";
 import { auth, signIn, signOut } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import bcrypt from "bcryptjs";
 import { checkAuth } from "@/lib/server-utils";
+import { Prisma } from "@prisma/client";
+import { AuthError } from "next-auth";
 
 // --- user actions ---
-export async function singUp(formData: FormData) {
-  const hashedPassword = await bcrypt.hash(
-    formData.get("password") as string,
-    10
-  );
+export async function singUp(prevState: unknown, formData: unknown) {
+  await sleep(1000);
+  // check if formdata is formdata type
+  if (!(formData instanceof FormData)) {
+    return {
+      message: "Invalid form data",
+    };
+  }
+  const formDataEntries = Object.fromEntries(formData.entries());
 
-  await prisma.user.create({
-    data: {
-      email: formData.get("email") as string,
-      hashedPassword,
-    },
-  });
+  const validatedFormData = authSchema.safeParse(formDataEntries);
+  if (!validatedFormData.success) {
+    return {
+      message: "Invalid form data",
+    };
+  }
+  // convert formdata to a js obj
+  const { email, password } = validatedFormData.data;
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  try {
+    await prisma.user.create({
+      data: {
+        email,
+        hashedPassword,
+      },
+    });
+  } catch (error) {
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      if (error.code === "P2002") {
+        return {
+          message: "Email already exists",
+        };
+      }
+    }
+    return {
+      message: "",
+    };
+  }
 
   await signIn("credentials", formData);
 }
 
-export async function logIn(formData: FormData) {
-  const authData = Object.fromEntries(formData.entries());
-  console.log(authData);
-  await signIn("credentials", authData);
-  redirect("/app/dashboard");
+export async function logIn(prevState: unknown, formData: unknown) {
+  if (!(formData instanceof FormData)) {
+    return {
+      message: "Invalid form data",
+    };
+  }
+  try {
+    await signIn("credentials", formData);
+
+  } catch (error) {
+    if (error instanceof AuthError) {
+      switch (error.type) {
+        case "CredentialsSignin": {
+          return {
+            message: "Invalid Credentials",
+          };
+        }
+        default: {
+          return {
+            message: "Error. Could not sign in.",
+          };
+        }
+      }
+    }
+   throw error;
+  }
 }
 
 export async function logOut() {
+  await sleep(1000);
   await signOut({ redirectTo: "/" });
 }
 

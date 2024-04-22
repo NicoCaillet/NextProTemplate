@@ -3,6 +3,7 @@ import NextAuth, { NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { toast } from "sonner";
+import { authSchema } from "./validations";
 
 const config = {
   pages: {
@@ -49,6 +50,11 @@ const config = {
   providers: [
     Credentials({
       async authorize(credentials) {
+        // validation 
+        const validatedFormData = authSchema.safeParse(credentials);
+        if(!validatedFormData.success){
+          return null
+        }
         // authorize user based on credentials, runs on login
         const { email, password } = credentials;
         const user = await prisma.user.findUnique({
