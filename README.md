@@ -1,4 +1,5 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Hi! hope you are great
+## This is my favourite and recommended best NEXT JS 2024 structure, hope you like it!
 
 ## Getting Started
 
