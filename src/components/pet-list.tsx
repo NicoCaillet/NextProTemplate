@@ -1,6 +1,6 @@
 "use client";
 import { usePetContext, useSearchContext } from "@/lib/hooks";
-import { Pet } from "@/lib/types";
+// import { Pet } from "@/lib/types";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React, { useMemo } from "react";
