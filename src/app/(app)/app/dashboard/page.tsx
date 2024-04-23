@@ -6,7 +6,7 @@ import ContentBlock from "@/components/content-block";
 import PetList from "@/components/pet-list";
 import PetDetail from "@/components/pet-detail";
 import PetButton from "@/components/pet-button";
-
+// import FilteringLayout from ""
 export default async function Dashboard() {
   return (
     <main>
@@ -14,16 +14,20 @@ export default async function Dashboard() {
         <Branding />
         <Stats />
       </div>
-      <div className="grid md:grid-cols-3 md:grid-rows-[45px_1fr] gap-4 grid-rows-[45px_300px_500px] md:h-[700px]">
-        <div className="md:row-start-1 md:row-span-1 md:col-start-1  md:col-span-1">
+      <ContentBlock className="h-[100px]"> 
+        {/* <FilteringLayout /> */}
+        <div></div>
+      </ContentBlock>
+      <div className="grid md:grid-cols-3 md:grid-rows-[45px_1fr] gap-4 grid-rows-[300px_500px] md:h-[700px]">
+        {/* <div className="md:row-start-1 md:row-span-1 md:col-start-1  md:col-span-1">
           <SearchForm />
-        </div>
-        <div className="md:row-start-2 md:row-span-full md:col-start-1 md:col-span-1 relative">
+        </div> */}
+        <div className="md:row-start-1 overflow-auto md:row-span-full md:col-start-1 md:col-span-1 relative">
           <ContentBlock>
             <PetList />
-            <div className="absolute bottom-4 right-3">
+            {/* <div className="absolute bottom-4 right-3">
               <PetButton actionType="add" />
-            </div>
+            </div> */}
           </ContentBlock>
         </div>
         <div className="md:row-start-1 md:row-span-full md:col-start-2 md:col-span-full">

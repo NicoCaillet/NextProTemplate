@@ -216,7 +216,6 @@ export async function getPetsByUserId() {
         userId: session.user?.id,
       },
     });
-    console.log("getting those...", pets);
     return pets;
   } catch (error) {
     throw new Error(`Error fetching pets: ${error}`);

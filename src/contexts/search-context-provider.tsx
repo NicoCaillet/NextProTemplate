@@ -23,7 +23,6 @@ export default function SearchContextProvider({
 
   // event handlers / actions
   const handleChangeSearchQuery = (newValue: string) => {
-    console.log(newValue)
     setSearchQuery(newValue);
   };
 

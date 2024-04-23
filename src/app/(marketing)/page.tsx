@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="bg-[#2c9676] min-h-screen flex items-center justify-center flex-col gap-10 xl:flex-row ">
+    <main className="bg-[#79DAE8] min-h-screen flex items-center justify-center flex-col gap-10 xl:flex-row ">
       <Image
         src="https://bytegrad.com/course-assets/react-nextjs/petsoft-preview.png"
         alt="Preview of PetSoft"
@@ -23,11 +23,11 @@ export default function Home() {
           access for $299.{" "}
         </p>
         <div className="mt-10 space-x-3">
-          <Button asChild>
-            <Link href="/app/dashboard">Get started</Link>
+          <Button asChild variant="secondary">
+            <Link href="/app/dashboard">Get Hired</Link>
           </Button>
-          <Button asChild variant='secondary'>
-            <Link href="/login">Login</Link>
+          <Button asChild variant="primaryBtn">
+            <Link href="/login">Hire</Link>
           </Button>
         </div>
       </div>

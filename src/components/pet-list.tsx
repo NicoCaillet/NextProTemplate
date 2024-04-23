@@ -15,7 +15,7 @@ export default function PetList() {
   );
 
   return (
-    <ul className="bg-white border-b border-light overflow-y-auto">
+    <ul className="bg-white border-b border-light">
       {filteredPets.map((pet, i) => (
         <li key={i}>
           <button

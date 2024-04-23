@@ -10,7 +10,7 @@ type AuthFormBtnProps = {
 function AuthFormBtn({ type }: AuthFormBtnProps) {
   const { pending } = useFormStatus();
   return (
-    <Button disabled={pending}>
+    <Button disabled={pending} variant="primaryBtn">
       {type === "login" ? "Log In" : "Sign up"}
     </Button>
   );

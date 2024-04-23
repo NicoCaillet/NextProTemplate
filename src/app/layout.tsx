@@ -5,8 +5,11 @@ import "../styles/globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Nico k-po",
-  description: "El mas picante del condado",
+  title: "DevJobs",
+  description: "Facilitating job search for developers.",
+  icons: {
+    icon: "../../public/icon.svg",
+  },
 };
 
 export default function RootLayout({

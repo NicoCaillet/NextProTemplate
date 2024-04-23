@@ -20,10 +20,9 @@ const routes = [
 export default function Header() {
   const activePath = usePathname();
 
-  console.log(activePath)
 
   return (
-    <header className="flex py-2 justify-between items-center border-b border-white/10">
+    <header className="flex py-6 justify-between items-center border-b border-white/85">
       <Logo />
       <nav>
         <ul className="flex gap-5 text-sm">

@@ -17,7 +17,7 @@ export default async function Layout({ children }: LayoutProps) {
   return (
     <>
       <BackgroundPattern />
-      <div className="m-auto max-w-[1050px] px-4 flex flex-col min-h-screen">
+      <div className="m-auto max-w-[1200px] px-4 flex flex-col min-h-screen">
         <Header />
         <PetContextProvider data={data}>
           <SearchContextProvider>{children}</SearchContextProvider>

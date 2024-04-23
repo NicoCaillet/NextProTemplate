@@ -5,13 +5,13 @@ import React from "react";
 
 export default function Page() {
   return (
-    <main className="">
-      <H1 className="text-center">Log In</H1>
+    <main>
+      <H1 className="text-center">Log In!</H1>
       <AuthForm type="login" />
 
-      <p className="flex items-center gap-x-3 mt-2">
+      <p className="flex items-center gap-x-1 mt-2">
         No account yet?
-        <Link href="/signup" className="text-sm text-zinc-500">
+        <Link href="/signup" className="text-sm text-bigBlue">
           Sign Up
         </Link>
       </p>

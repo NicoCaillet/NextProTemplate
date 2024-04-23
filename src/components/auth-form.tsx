@@ -19,9 +19,17 @@ export default function AuthForm({ type }: AuthFormProps) {
       className="space-y-3"
       action={type === "login" ? dispatchLogin : dispatchSignUp}
     >
+    
       <div className="space-y-2">
         <Label htmlFor="email"> Email </Label>
-        <Input id="email" type="email" name="email" required maxLength={100} />
+        <Input
+          id="email"
+          type="email"
+          name="email"
+          required
+          maxLength={100}
+          className="text-base font-medium max-w-full w-full h-12 bg-transparent rounded-lg mt-2"
+        />
       </div>
       <div className="space-y-2">
         <Label htmlFor="password"> Password </Label>
@@ -31,6 +39,7 @@ export default function AuthForm({ type }: AuthFormProps) {
           name="password"
           required
           maxLength={100}
+          className="text-base font-medium max-w-full w-full h-12 bg-transparent rounded-lg mt-2"
         />
       </div>
       <AuthFormBtn type={type} />
