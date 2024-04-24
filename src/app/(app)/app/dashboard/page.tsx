@@ -13,7 +13,7 @@ export default async function Dashboard() {
     <main>
       <div className="flex justify-between py-4 items-center text-white ">
         <Branding />
-        <Stats />
+        {/* <Stats /> */}
       </div>
       <ContentBlock className="h-[100px] mb-4 bg-white">
         <FilteringLayout />

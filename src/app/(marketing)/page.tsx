@@ -15,12 +15,13 @@ export default function Home() {
       <div>
         <Logo />
         <h1 className="text-5xl font-semibold my-6 max-w-[500px]">
-          Manage your <span className="font-extrabold">pet daycare</span> with
-          ease
+          Facilitating <span className="font-extrabold">job search</span> to
+          developers
         </h1>
-        <p className="text-2xl font-medium max-w-[600px]">
-          Use petsoft to easily get track of pets under your care. Get lifetime
-          access for $299.{" "}
+        <p className="text-lg font-medium max-w-[600px]">
+          From frontend wizards to backend gurus, our platform connects talented
+          developers with top-notch opportunities worldwide. Join us and take
+          the next step towards your coding career success!
         </p>
         <div className="mt-10 space-x-3">
           <Button asChild variant="secondary">
