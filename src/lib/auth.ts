@@ -7,7 +7,7 @@ import { authSchema } from "./validations";
 
 const config = {
   pages: {
-    signIn: "/login",
+    signIn: "/dev/login",
   },
   session: {
     maxAge: 30 * 24 * 24 * 60,
@@ -27,7 +27,9 @@ const config = {
       }
 
       if (isLoggedIn && !isTryingtoAccessApp) {
-        return Response.redirect(new URL("app/dashboard", request.nextUrl));
+        const baseUrl = "http://localhost:3000"; // or https if using SSL
+        const redirectUrl = new URL("/app/dashboard", baseUrl);
+        return Response.redirect(redirectUrl.toString());
       }
       if (!isLoggedIn && !isTryingtoAccessApp) {
         return true;

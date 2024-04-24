@@ -25,10 +25,10 @@ export default function Home() {
         </p>
         <div className="mt-10 space-x-3">
           <Button asChild variant="secondary">
-            <Link href="/signup">Get Hired</Link>
+            <Link href="/dev/signup">Get Hired</Link>
           </Button>
           <Button asChild variant="primaryBtn">
-            <Link href="/login">Hire</Link>
+            <Link href="/rrhh/signup">Hire</Link>
           </Button>
         </div>
       </div>

@@ -6,14 +6,16 @@ import React from "react";
 export default function Page() {
   return (
     <main>
-      <H1 className="text-center">Sign Up!</H1>
-      <AuthForm type="signup"/>
+      <H1 className="text-center">LogIn as a Recruiter</H1>
+      <AuthForm type="login" />
+
       <p className="flex items-center gap-x-1 mt-2">
-        Already have an account?
-        <Link href="/login" className="text-sm text-zinc-500">
-          Log In
+        No account yet?
+        <Link href="/rrhh/signup" className="text-sm text-bigBlue">
+          Sign Up
         </Link>
       </p>
     </main>
   );
 }
+
