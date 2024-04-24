@@ -25,7 +25,7 @@ export default function Home() {
         </p>
         <div className="mt-10 space-x-3">
           <Button asChild variant="secondary">
-            <Link href="/app/dashboard">Get Hired</Link>
+            <Link href="/signup">Get Hired</Link>
           </Button>
           <Button asChild variant="primaryBtn">
             <Link href="/login">Hire</Link>
